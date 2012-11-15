@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="stylesheets/screen.css" media="screen">
+	<title></title>
+</head>
+<body>
+	<h1>Content Choreography</h1>
+	<section id="page">
+		<header>
+			<span>1</span>
+			<h3>(header)</h3>
+		</header>
+		<nav>
+			<span>2</span>
+			<h3>(navigation) Home | About | Contact | Example</h3>
+		</nav>
+		<div class="main" role="main">
+			<span>3</span>
+			<h3>(main)</h3>
+			<p>
+				Using flexbox and box-ordinal-group CSS properties, <strong>we can change the order</strong>
+				of elements on a page at different viewport sizes. In this very basic example I initiate flexbox via a media query in my global styles stylesheet so that only browsers that can a) read media queries and b) have smaller viewports than 33em (i.e smartphones and i.e not IE &lt;9) see the re-ordered items. The numbered labels represent the order they appear in the code - resize your browser to see them change if you are on a desktop.
+			</p>
+			<p>
+				Support for this technique is
+				<a href="http://caniuse.com/#feat=flexbox">widespread among smartphones</a>
+				, it is safe to use to re-order page contents for mobile and tablet devices.
+			</p>
+		</div>
+		<aside>
+			<span>4</span>
+			<h3>(aside)</h3>
+			<p>
+				I am using this technique with
+				<a href="http://goldilocksapproach.com">The Goldilocks Approach</a>
+				as my responsive web design boilerplate. It seems to compliment it perfectly along with a mobile first approach.
+			</p>
+		</aside>
+		<div class="example_ad">
+			<span>5</span>
+			<h3>(banner ad)</h3>
+		</div>
+		<footer>
+			<span>6</span>
+			<h3>(footer)</h3>
+		</footer>
+	</section>
+	<script type="text/javascript">
+document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')<\/script>
+	<\/body></script>
+</body>
+</html>

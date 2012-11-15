@@ -1,0 +1,95 @@
+// ---------------------------------------------------------------------------
+// Imports
+
+@import "_base/base";
+
+/* -------------------------------------------------------------------------*/
+/* Layout */
+
+body {
+	background: #3371AA;
+	@if $show-grid {
+		@include susy-grid-background;
+	}
+}
+
+h1 {
+	text-align: center;
+	color: white;
+	@include adjust-font-size-to($largepx);
+
+	@include at-breakpoint($first-break 8) {
+		// Bigger font size once we break out of mobile
+		@include adjust-font-size-to($xlargepx);
+	}
+}
+
+#page { 
+	@include container;
+
+	// Use CSS3 flex-box module for 'mobile first' default
+	// Support is wide spread amongst mobile browsers
+	@include display-box;
+	@include box-orient($default-box-orient);
+	@include box-pack($default-box-pack);
+	@include box-align($default-box-align);
+
+	span {
+		background: #3371AA;
+		color:white;
+		padding: 0.5em 1em;
+	}
+
+	.main, header, aside, footer, nav, .example_ad {
+		@include container;
+		background: #f1f1f1;
+		//color: #3371AA;
+		text-align: center;
+		@include box-ordinal-group(1);
+	}
+
+	.example_ad {
+		// The order of this element is different for our 'mobile first' default
+		@include box-ordinal-group(4);
+		// Highlight this with a different color
+		color: green; 
+	}
+
+    nav {
+    	// The order of this element is different for our 'mobile first' default
+    	@include box-ordinal-group(2);
+    	// Highlight this with a different color
+    	color: green;
+    }
+
+    footer {
+    	@include box-ordinal-group(3);
+    }
+
+    // Break out of 'mobile' and increase our grid size, etc
+    @include at-breakpoint($first-break 8) {
+        @include set-container-width;
+        
+        @if $show-grid {
+            @include susy-grid-background;
+        }
+
+        // Get rid of CSS3 flex-box once we break out of mobile.
+        // Support amongst desktop browsers is not so good
+        display: block;
+        display: -webkit-block;
+        display: -moz-block;
+        display: -ms-block;
+
+        .main, header, aside, footer, nav, .example_ad {
+    		@include set-container-width;
+    		@include span-columns(8 omega, 8);
+    	}
+
+    	// Get rid of the highlights we were using to show reordered elements
+    	// in 'mobile first' default
+    	nav, .example_ad {
+			color: #3371AA;
+		}
+    }
+}
