@@ -12,7 +12,7 @@ In the larger contexts this example makes use of a fluid and responsive CSS grid
 
 ## Typography Stuff ##
 
-I learnt something about [vertical rhythm](http://typecast.com/blog/4-simple-steps-to-vertical-rhythm) and [modular scale](http://typecast.com/blog/4-simple-steps-to-vertical-rhythm). This demo integrates a compass extension for each with a [SASSified version of normalize.css](https://github.com/JohnAlbin/normalize.css-with-sass-or-compass) stolen from JohnAlbin.
+I learnt something about [vertical rhythm](http://typecast.com/blog/4-simple-steps-to-vertical-rhythm) and [modular scale](http://www.alistapart.com/articles/more-meaningful-typography/). This demo integrates a compass extension for each with a [SASSified version of normalize.css](https://github.com/JohnAlbin/normalize.css-with-sass-or-compass) stolen from JohnAlbin.
 
 
 ## Disclaimer ##
