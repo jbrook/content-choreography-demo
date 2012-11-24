@@ -1,27 +1,11 @@
 // ---------------------------------------------------------------------------
 // Imports
 
-@import "susy";
 @import "compass/css3/box";
 @import "size";
 @import "type";
 
-// ---------------------------------------------------------------------------
-// Basic Grid
-
-$total-columns  : 4;
-$column-width   : 4em;
-$gutter-width   : 1em;
-$grid-padding   : $gutter-width;
-$show-grid-backgrounds  : true;
-$show-grid: false;
-
-$default-box-orient			: vertical;
-$default-box-pack			: start;
-$default-box-align			: stretch;
-$default-box-ordinal-group	: 1;
-
-$first-break: 33em;
+@import "compass/typography/vertical_rhythm";// http://typecast.com/blog/4-simple-steps-to-vertical-rhythm
 
 // Mixin from vertical-rhythm - sets base font size and line height on 'html; element
 @include establish-baseline;
@@ -32,20 +16,11 @@ $first-break: 33em;
 //
 // =============================================================================
 
-// The base font size.
-//$base-font-size: 16px is set in _type.scss
+// The base font size is set in _type.scss
 
-// The base line height determines the basic unit of vertical rhythm.
-// $base-line-height: 24px; // Overrides default set in Vertical Rhythm partial. Is set in _type.scss
+// The base line height (base unit for vertical rhythm is set in _type.scss
 
-// The font sizes for h1-h6. You should set these variables in your base partial.
-// These are dealt with directly in _normalize.scss
-//$h1-font-size: 2    * $base-font-size !default;
-//$h2-font-size: 1.5  * $base-font-size !default;
-//$h3-font-size: 1.17 * $base-font-size !default;
-//$h4-font-size: 1    * $base-font-size !default;
-//$h5-font-size: 0.83 * $base-font-size !default;
-//$h6-font-size: 0.75 * $base-font-size !default;
+// The font sizes for h1-h6 are dealt with directly in _normalize.scss.
 
 // Setting this to false will result in smaller output, but no support for ie6 hacks.
 $legacy-support-for-ie6: false; // Overrides default set in Support partial.
@@ -60,11 +35,7 @@ $base-font-family: sans-serif !default;
 $indent-amount: 40px !default;
 
 // After the default variables are set, import the required Compass partials.
+@import "layout";
+@import "compass/css3/box-sizing";
 @import "normalize";
 @import "compass/support"; // Cross browser support config
-@import "compass/css3/box-sizing";
-@import "compass/typography/vertical_rhythm";// http://typecast.com/blog/4-simple-steps-to-vertical-rhythm
-
-
-
-

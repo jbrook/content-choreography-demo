@@ -3,22 +3,21 @@
 
 @import "_base/base";
 
+@mixin clear-flexbox {
+	display: block;
+    display: -webkit-block;
+    display: -moz-block;
+    display: -ms-block;
+}
+
 /* -------------------------------------------------------------------------*/
 /* Layout */
 
-body {
-	background: #3371AA;
-	@if $show-grid {
-		@include susy-grid-background;
-	}
-}
-
 h1 {
 	text-align: center;
-	color: white;
 	@include adjust-font-size-to($largepx);
 
-	@include at-breakpoint($first-break 8) {
+	@include at-breakpoint($first-break 7) {
 		// Bigger font size once we break out of mobile
 		@include adjust-font-size-to($xlargepx);
 	}
@@ -35,31 +34,31 @@ h1 {
 	@include box-align($default-box-align);
 
 	span {
-		background: #3371AA;
+		background: #C0C0C0;
 		color:white;
-		padding: 0.5em 1em;
+		padding: rhythm(0.25) rhythm(0.5);
+		position: absolute;
 	}
 
 	.main, header, aside, footer, nav, .example_ad {
-		@include container;
-		background: #f1f1f1;
-		//color: #3371AA;
+		color: #3371AA;
 		text-align: center;
 		@include box-ordinal-group(1);
+		@include rhythm(1);
+
+		p {
+			text-align: left;
+		}
 	}
 
 	.example_ad {
 		// The order of this element is different for our 'mobile first' default
 		@include box-ordinal-group(4);
-		// Highlight this with a different color
-		color: green; 
 	}
 
     nav {
     	// The order of this element is different for our 'mobile first' default
     	@include box-ordinal-group(2);
-    	// Highlight this with a different color
-    	color: green;
     }
 
     footer {
@@ -67,7 +66,17 @@ h1 {
     }
 
     // Break out of 'mobile' and increase our grid size, etc
-    @include at-breakpoint($first-break 8) {
+    @include at-breakpoint($first-break 7) {
+    	$container-width: $first-break - (2 * rhythm(1, $normpx));
+        @include set-container-width;
+
+        // Get rid of CSS3 flex-box once we break out of mobile.
+        // Support amongst desktop browsers is not so good
+        @include clear-flexbox;
+    }
+
+    @include at-breakpoint($second-break 12) {
+    	$container-width: 100%;
         @include set-container-width;
         
         @if $show-grid {
@@ -76,20 +85,31 @@ h1 {
 
         // Get rid of CSS3 flex-box once we break out of mobile.
         // Support amongst desktop browsers is not so good
-        display: block;
-        display: -webkit-block;
-        display: -moz-block;
-        display: -ms-block;
+        @include clear-flexbox;
 
-        .main, header, aside, footer, nav, .example_ad {
-    		@include set-container-width;
-    		@include span-columns(8 omega, 8);
+    	header { 
+    		@include prefix(2);
+    		@include span-columns(7, 12);
     	}
 
-    	// Get rid of the highlights we were using to show reordered elements
-    	// in 'mobile first' default
-    	nav, .example_ad {
-			color: #3371AA;
-		}
+    	nav {
+    		clear: both;
+    		@include span-columns(2);
+    	}
+
+    	.main {
+    		@include span-columns(7, 12);
+    	}
+
+    	footer, .example_ad {
+    		clear: both;
+    		@include prefix(2);
+    		@include span-columns(7, 12);
+    	}
+
+    	aside {
+    		@include span-columns(3 omega, 12);
+    	}
+
     }
 }

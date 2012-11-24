@@ -1,0 +1,22 @@
+@import "susy";
+
+// ---------------------------------------------------------------------------
+// Basic Grid
+
+$container-style: magic;
+
+$total-columns  : 7;
+$column-width   : 4em;
+$gutter-width   : rhythm(1, $normpx);
+$grid-padding   : rhythm(1, $normpx);
+
+$show-grid-backgrounds  : false;
+$show-grid: true;
+
+$default-box-orient			: vertical;
+$default-box-pack			: start;
+$default-box-align			: stretch;
+$default-box-ordinal-group	: 1;
+
+$first-break: 30 + ($medem * 2);
+$second-break: 50 + ($medem * 2);

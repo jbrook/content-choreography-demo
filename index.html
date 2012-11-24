@@ -2,14 +2,14 @@
 <html>
 <head>
 	<link type="text/css" rel="stylesheet" href="stylesheets/screen.css" media="screen">
-	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Content Choreography</title>
 </head>
 <body>
-	<h1>Content Choreography</h1>
 	<section id="page">
 		<header>
 			<span>1</span>
-			<h3>(header)</h3>
+			<h1>Content Choreography</h3>
 		</header>
 		<nav>
 			<span>2</span>
@@ -20,21 +20,33 @@
 			<h3>(main)</h3>
 			<p>
 				Using flexbox and box-ordinal-group CSS properties, <strong>we can change the order</strong>
-				of elements on a page at different viewport sizes. In this very basic example I initiate flexbox via a media query in my global styles stylesheet so that only browsers that can a) read media queries and b) have smaller viewports than 33em (i.e smartphones and i.e not IE &lt;9) see the re-ordered items. The numbered labels represent the order they appear in the code - resize your browser to see them change if you are on a desktop.
+				of elements on a page at different viewport sizes. The numbered labels represent the order
+				in which the content appears in the code - resize your browser to see them change if you are
+				on a desktop.
 			</p>
 			<p>
-				Support for this technique is
-				<a href="http://caniuse.com/#feat=flexbox">widespread among smartphones</a>
-				, it is safe to use to re-order page contents for mobile and tablet devices.
+				This example is built on the principles of <a href="http://bradfrostweb.com/blog/mobile/the-
+				many-faces-of-mobile-first/">mobile first</a> and <a href="http://goldilocksapproach.com">
+				The Goldilocks Approach</a>. There are two break-points, one at approximately 33em and
+				another when there is room to display multiple columns. The first breakpoint changes back to 
+				the old CSS box model (display:block).
 			</p>
+			<p>	
+				CSS Flexbox (2009 spec) is not very widely supported by browsers but, conveniently, is widely
+				supported by the most used mobile and tablet browsers. It's on those devices where we might
+				want to choreograph the content.
+			</p>	
 		</div>
 		<aside>
 			<span>4</span>
 			<h3>(aside)</h3>
 			<p>
-				I am using this technique with
-				<a href="http://goldilocksapproach.com">The Goldilocks Approach</a>
-				as my responsive web design boilerplate. It seems to compliment it perfectly along with a mobile first approach.
+				This example has been built with SASS, Compass and the 'Susy' responsive grid plugin. The 
+				mark-up remains semantic and the grid is 'em' based.
+			</p>
+			<p>	
+				Finally, some attention has been paid to typography, golden ratios, vertical rhythm, and
+				modular scale.
 			</p>
 		</aside>
 		<div class="example_ad">
